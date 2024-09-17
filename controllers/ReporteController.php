@@ -1,6 +1,7 @@
 <?php
 
 namespace Controllers;
+
 use Mpdf\Mpdf;
 use Model\ActiveRecord;
 use MVC\Router;
