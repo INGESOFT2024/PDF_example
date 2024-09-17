@@ -32,6 +32,19 @@ class EmailController
             $email->AddReplyTo($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']);                            //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             $email->setFrom($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']);
             $email->isHTML();
+
+
+            // Usa ruta absoluta desde la raíz del proyecto para el archivo PDF
+            $projectRoot = dirname(__DIR__, 1); // Ajusta si es necesario
+            $filePath = $projectRoot . '/public/temp/temp/reporte.pdf';
+
+            if (!file_exists($filePath)) {
+                throw new Exception('Archivo no encontrado: ' . $filePath);
+            }
+
+            $email->addAttachment($filePath);
+
+
             $imagePath = __DIR__ . '/../public/images/cit.png';
             $email->AddEmbeddedImage($imagePath, 'hola', 'cit.png');
             $html = $router->load('email/saludo');
@@ -49,3 +62,4 @@ class EmailController
     }
 
 }
+

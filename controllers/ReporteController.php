@@ -38,6 +38,24 @@ class ReporteController {
         $mpdf->WriteHTML($css);
         $mpdf->WriteHTML($html);
         $mpdf->Output();
+
+
+        
+        // Define la ruta de la carpeta 'temp' en el directorio 'public'
+        $publicDir = __DIR__ . '../../public/temp'; // Ajusta según la estructura de tu proyecto
+        $tempDir = $publicDir . '/temp/';
+        $fileName = 'reporte.pdf';
+        $filePath = $tempDir . $fileName;
+
+        // Asegúrate de que la carpeta 'temp' exista
+        if (!is_dir($tempDir)) {
+            mkdir($tempDir, 0777, true);
+        }
+
+        // Guarda el PDF en el archivo especificado
+        $mpdf->Output($filePath, 'F');
+
     }
 
 }
+
