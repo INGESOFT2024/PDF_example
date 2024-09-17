@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col text-center">
-    <h1>LUCAS DANIEL MARTINEZ ARTAL</h1>
+    <h1>EJEMPLO DE PHP MAILER Y MPDF</h1>
   </div>
 </div>
 <div class="row justify-content-center">
