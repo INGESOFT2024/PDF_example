@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\EmailController;
 use MVC\Router;
 use Controllers\AppController;
+use Controllers\FtpController;
 use Controllers\ReporteController;
 
 $router = new Router();
@@ -15,7 +16,10 @@ $router->get('/pdf', [ReporteController::class,'pdf']);
 
 $router->get('/email', [EmailController::class, 'email']);
 
+$router->get('/subir', [FtpController::class,'subir']);
+
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
+
 
 
