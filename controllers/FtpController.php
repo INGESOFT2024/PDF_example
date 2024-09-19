@@ -15,7 +15,7 @@ class FtpController
            $sftp = new SFTP('ftp', 22);  // Reemplaza 'ftp' por la dirección IP o dominio de tu servidor
 
            // Intentar autenticarse
-           if ($sftp->login('ftpuser', 'ftppasswor')) {  // Reemplaza 'ftpuser' y 'ftppasswor' por las credenciales correctas
+           if ($sftp->login('ftpuser', 'ftppassword')) {  // Reemplaza 'ftpuser' y 'ftppasswor' por las credenciales correctas
                echo "Conectado";
            } else {
                echo "No conectado";
